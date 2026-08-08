@@ -1906,3 +1906,215 @@ canvas {
         }
     }
 }
+
+
+/* =========================================================
+   FINAL MOBILE CENTERING + OVERFLOW FIX
+   Fixes right-side attachment/overflow in F12 mobile mode
+   ========================================================= */
+
+/* Critical: include padding and borders inside element width */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Keep the document exactly within the viewport */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Center every main container without adding width beyond viewport */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero-container,
+    .contact-container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Mobile/tablet portrait */
+@media (max-width: 768px) {
+
+    .container,
+    .nav-container,
+    .hero-container,
+    .contact-container,
+    .footer-container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Make all grid/flex children allowed to shrink */
+    .hero-container > *,
+    .skills-grid > *,
+    .help-grid > *,
+    .contact-cards > *,
+    .footer-container > * {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .hero-content,
+    .hero-card,
+    .contact-info,
+    .contact-method,
+    .help-card,
+    .card,
+    .exp-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Center section headings and text */
+    .hero-content {
+        text-align: center;
+    }
+
+    .availability-tag {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Prevent long email/URLs from pushing the page right */
+    .contact-method-details,
+    .contact-method-details strong,
+    .help-content,
+    .hero p {
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    /* Contact cards stay visually centered */
+    .contact-cards {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .contact-method {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Footer */
+    .footer-container {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Tools cannot create horizontal overflow */
+    .tools-container {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .tool-tag {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero,
+    .skills-section,
+    .experience-section,
+    .tools-section,
+    .contact-section {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .hero-content,
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-method {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .contact-method-details {
+        flex: 1 1 auto;
+        width: 0;
+    }
+
+    .contact-arrow {
+        flex-shrink: 0;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .contact-method {
+        gap: 9px;
+    }
+
+    .contact-method-details strong {
+        font-size: 13px;
+    }
+}
