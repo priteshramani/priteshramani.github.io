@@ -780,3 +780,1129 @@ footer {
         padding: 20px;
     }
 }
+/* =========================================
+   CONTACT CARDS
+========================================= */
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 45px;
+}
+
+
+/* Main card */
+
+.contact-method {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 95px;
+    padding: 22px 25px;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    text-decoration: none;
+    color: #111827;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Top gradient line */
+
+.contact-method::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4,
+        #8b5cf6
+    );
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.35s ease;
+}
+
+
+/* Hover */
+
+.contact-method:hover {
+    transform: translateY(-6px);
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.12);
+
+    color: #111827;
+}
+
+.contact-method:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* Icon */
+
+.contact-method-icon {
+    width: 54px;
+    height: 54px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 18px;
+
+    border-radius: 15px;
+
+    background: #f1f5f9;
+
+    font-size: 22px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.contact-method:hover .contact-method-icon {
+    transform: scale(1.08);
+}
+
+
+/* Text */
+
+.contact-method-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.contact-method-details span {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.contact-method-details strong {
+    font-size: 17px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+
+/* Arrow */
+
+.contact-arrow {
+    margin-left: auto;
+
+    color: #94a3b8;
+    font-size: 16px;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.contact-method:hover .contact-arrow {
+    transform: translateX(6px);
+    color: #2563eb;
+}
+
+
+/* =========================================
+   INDIVIDUAL ICON COLORS
+========================================= */
+
+/* Email */
+
+.contact-method:nth-child(1):hover
+.contact-method-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* WhatsApp */
+
+.contact-method:nth-child(2):hover
+.contact-method-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+
+/* LinkedIn */
+
+.contact-method:nth-child(3):hover
+.contact-method-icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+
+/* GitHub */
+
+.contact-method:nth-child(4):hover
+.contact-method-icon {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .contact-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact-method {
+        min-height: 85px;
+        padding: 18px;
+    }
+
+    .contact-method-icon {
+        width: 48px;
+        height: 48px;
+        margin-right: 14px;
+    }
+
+    .contact-method-details strong {
+        font-size: 15px;
+    }
+
+    .contact-arrow {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   PREMIUM INTERACTION ENHANCEMENTS
+   Added without removing or replacing existing CSS
+   ========================================================= */
+
+/* --- Global link/button polish --- */
+
+.btn,
+.contact-method,
+.footer-socials a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* --- Hero buttons: premium shine + icon animation --- */
+
+.hero-buttons .btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero-buttons .btn i {
+    transition: transform 0.35s ease;
+}
+
+.hero-buttons .btn:hover i {
+    transform: translateY(-2px) scale(1.12);
+}
+
+.hero-buttons .btn-primary {
+    box-shadow: 0 8px 22px rgba(0, 107, 84, 0.22);
+}
+
+.hero-buttons .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.28) 48%, transparent 75%);
+    transform: translateX(-130%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hero-buttons .btn-primary:hover::after {
+    transform: translateX(130%);
+}
+
+.hero-buttons .btn-outline-dark {
+    position: relative;
+}
+
+.hero-buttons .btn-outline-dark:hover {
+    border-color: rgba(142, 225, 206, 0.7);
+    box-shadow: 0 8px 22px rgba(0, 107, 84, 0.16);
+}
+
+/* --- Contact cards: premium hover system --- */
+
+.contact-method {
+    isolation: isolate;
+    will-change: transform, box-shadow;
+}
+
+.contact-method::after {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -90px;
+    bottom: -110px;
+    border-radius: 50%;
+    background: rgba(0, 107, 84, 0.07);
+    transform: scale(0);
+    transition: transform 0.45s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.contact-method:hover::after {
+    transform: scale(1.7);
+}
+
+.contact-method-icon {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.contact-method-icon::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: -75px;
+    left: -75px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    transition: all 0.5s ease;
+}
+
+.contact-method:hover .contact-method-icon::after {
+    top: 60px;
+    left: 60px;
+}
+
+.contact-method:hover .contact-method-icon i {
+    animation: contactIconBounce 0.55s ease;
+}
+
+@keyframes contactIconBounce {
+    0% { transform: scale(1) rotate(0deg); }
+    35% { transform: scale(1.18) rotate(-7deg); }
+    65% { transform: scale(0.96) rotate(5deg); }
+    100% { transform: scale(1.08) rotate(0deg); }
+}
+
+/* Email */
+
+.contact-method:nth-child(1):hover {
+    border-color: rgba(220, 38, 38, 0.35);
+    box-shadow: 0 18px 38px rgba(220, 38, 38, 0.12);
+}
+
+.contact-method:nth-child(1)::before {
+    background: linear-gradient(90deg, #ef4444, #f97316);
+}
+
+/* WhatsApp */
+
+.contact-method:nth-child(2):hover {
+    border-color: rgba(22, 163, 74, 0.35);
+    box-shadow: 0 18px 38px rgba(22, 163, 74, 0.12);
+}
+
+.contact-method:nth-child(2)::before {
+    background: linear-gradient(90deg, #16a34a, #22c55e);
+}
+
+/* LinkedIn */
+
+.contact-method:nth-child(3):hover {
+    border-color: rgba(37, 99, 235, 0.35);
+    box-shadow: 0 18px 38px rgba(37, 99, 235, 0.12);
+}
+
+.contact-method:nth-child(3)::before {
+    background: linear-gradient(90deg, #2563eb, #0ea5e9);
+}
+
+/* GitHub */
+
+.contact-method:nth-child(4):hover {
+    border-color: rgba(24, 24, 27, 0.3);
+    box-shadow: 0 18px 38px rgba(24, 24, 27, 0.12);
+}
+
+.contact-method:nth-child(4)::before {
+    background: linear-gradient(90deg, #18181b, #52525b);
+}
+
+/* Contact arrow circle */
+
+.contact-arrow {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f8fafc;
+    transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+}
+
+.contact-method:hover .contact-arrow {
+    transform: translateX(6px) rotate(-5deg);
+    background: #ecfdf5;
+}
+
+/* --- Footer social icons: individual brand animations --- */
+
+.footer-socials a {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.footer-socials a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    transform: scale(0);
+    transition: transform 0.35s ease;
+    z-index: -1;
+}
+
+.footer-socials a:hover::before {
+    transform: scale(1);
+}
+
+.footer-socials a i {
+    transition: transform 0.35s ease;
+}
+
+.footer-socials a:hover i {
+    animation: footerIconPop 0.5s ease;
+}
+
+@keyframes footerIconPop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.3) rotate(-8deg); }
+    70% { transform: scale(0.95) rotate(5deg); }
+    100% { transform: scale(1.1) rotate(0deg); }
+}
+
+/* LinkedIn */
+
+.footer-socials a:nth-child(1)::before {
+    background: #0a66c2;
+}
+
+.footer-socials a:nth-child(1):hover {
+    background-color: #0a66c2;
+    box-shadow: 0 8px 24px rgba(10, 102, 194, 0.35);
+}
+
+/* GitHub */
+
+.footer-socials a:nth-child(2)::before {
+    background: #181717;
+}
+
+.footer-socials a:nth-child(2):hover {
+    background-color: #181717;
+    box-shadow: 0 8px 24px rgba(24, 23, 23, 0.35);
+}
+
+/* Email */
+
+.footer-socials a:nth-child(3)::before {
+    background: #dc2626;
+}
+
+.footer-socials a:nth-child(3):hover {
+    background-color: #dc2626;
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.35);
+}
+
+/* --- Accessible keyboard focus --- */
+
+.btn:focus-visible,
+.contact-method:focus-visible,
+.footer-socials a:focus-visible {
+    outline: 3px solid rgba(0, 107, 84, 0.35);
+    outline-offset: 4px;
+}
+
+/* --- Reduce motion for accessibility --- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* --- Mobile contact polish --- */
+
+@media (max-width: 768px) {
+    .contact-method {
+        min-height: 88px;
+        border-radius: 16px;
+    }
+
+    .contact-method:hover {
+        transform: translateY(-3px);
+    }
+
+    .contact-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+
+    .footer-socials {
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-method-details strong {
+        max-width: 210px;
+        overflow-wrap: anywhere;
+    }
+
+    .contact-method-icon {
+        flex-shrink: 0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE UI / UX + TOUCH ANIMATIONS
+   Added on top of all existing styles
+   ========================================================= */
+
+/* Better touch behavior on phones/tablets */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Prevent sticky/hover-like tap behavior */
+    .btn,
+    .contact-method,
+    .footer-socials a,
+    .card,
+    .exp-card,
+    .help-card,
+    .tool-tag {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    /* Hero buttons */
+    .hero-buttons .btn {
+        min-height: 52px;
+        border-radius: 12px;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    }
+
+    .hero-buttons .btn:active {
+        transform: scale(0.97);
+    }
+
+    .hero-buttons .btn:active i {
+        transform: scale(0.9);
+    }
+
+    /* Contact cards */
+    .contact-method {
+        min-height: 92px;
+        padding: 18px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .contact-method:active {
+        transform: scale(0.975);
+        box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+    }
+
+    .contact-method:active::before {
+        transform: scaleX(1);
+    }
+
+    .contact-method:active .contact-method-icon {
+        transform: scale(0.94);
+    }
+
+    .contact-method:active .contact-arrow {
+        transform: translateX(4px);
+    }
+
+    /* Make the touch target comfortable */
+    .contact-method-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        margin-right: 0;
+    }
+
+    .contact-method-details {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .contact-method-details span {
+        font-size: 12px;
+    }
+
+    .contact-method-details strong {
+        font-size: 15px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    /* Mobile footer */
+    .footer-socials a {
+        width: 46px;
+        height: 46px;
+        font-size: 1.05rem;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .footer-socials a:active {
+        transform: scale(0.9);
+    }
+
+    /* Cards get a subtle touch response instead of hover */
+    .card:active,
+    .exp-card:active,
+    .help-card:active {
+        transform: scale(0.985);
+    }
+
+    .tool-tag:active {
+        transform: scale(0.96);
+    }
+
+    /* Keep the existing floating animation smooth on touch devices */
+    .floating {
+        animation-duration: 7s;
+    }
+}
+
+
+/* =========================================================
+   MOBILE LAYOUT / SPACING
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    html {
+        scroll-padding-top: 72px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    /* Navigation */
+    nav {
+        padding: 12px 0;
+    }
+
+    .nav-container {
+        min-height: 44px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 68px 0 58px;
+    }
+
+    .hero-container {
+        gap: 32px;
+    }
+
+    .hero h1 {
+        line-height: 1.12;
+        letter-spacing: -0.6px;
+    }
+
+    .typewriter-wrapper {
+        height: auto;
+        min-height: 33px;
+        font-size: 1.15rem;
+        line-height: 1.5;
+    }
+
+    .hero-buttons {
+        margin-top: 26px;
+    }
+
+    /* Prevent long text from creating horizontal overflow */
+    .hero p,
+    .contact-info > p,
+    .contact-method-details,
+    .help-content {
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    /* Contact section */
+    .contact-section {
+        padding: 64px 0;
+    }
+
+    .contact-info h2 {
+        line-height: 1.18;
+        letter-spacing: -0.5px;
+    }
+
+    .contact-info > p {
+        line-height: 1.7;
+        margin-bottom: 32px;
+    }
+
+    .contact-cards {
+        gap: 14px;
+        margin-top: 30px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 32px 0;
+    }
+
+    .footer-socials {
+        gap: 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONE UX
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero {
+        padding-top: 54px;
+        padding-bottom: 50px;
+    }
+
+    .availability-tag {
+        padding: 6px 13px;
+        font-size: 0.78rem;
+    }
+
+    .hero h1 {
+        font-size: 1.85rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .typewriter-wrapper {
+        font-size: 1rem;
+        padding-left: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        min-height: 50px;
+    }
+
+    .contact-method {
+        min-height: 86px;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .contact-method-icon {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        border-radius: 13px;
+        font-size: 19px;
+    }
+
+    .contact-method-details strong {
+        font-size: 14px;
+    }
+
+    .contact-arrow {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        font-size: 12px;
+    }
+
+    .footer-socials a {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .hero h1 {
+        font-size: 1.65rem;
+    }
+
+    .contact-method {
+        padding: 13px;
+        gap: 9px;
+    }
+
+    .contact-method-icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        font-size: 17px;
+    }
+
+    .contact-method-details span {
+        font-size: 11px;
+    }
+
+    .contact-method-details strong {
+        font-size: 13px;
+    }
+
+    .contact-arrow {
+        width: 25px;
+        height: 25px;
+        min-width: 25px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE SCROLL REVEAL SAFETY
+   ========================================================= */
+
+/* The JS already adds .active. This makes mobile entrance
+   animation slightly faster and more natural. */
+@media (max-width: 768px) {
+
+    .reveal {
+        transform: translateY(18px);
+        transition-duration: 0.55s;
+    }
+
+    .reveal.active {
+        transform: translateY(0);
+    }
+
+    .skills-grid .reveal:nth-child(2),
+    .skills-grid .reveal:nth-child(3),
+    .skills-grid .reveal:nth-child(4),
+    .skills-grid .reveal:nth-child(5),
+    .skills-grid .reveal:nth-child(6) {
+        transition-delay: 0.05s;
+    }
+}
+
+
+/* =========================================================
+   MOBILE ACCESSIBILITY
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .floating,
+        .cursor {
+            animation: none !important;
+        }
+
+        .reveal {
+            transform: none !important;
+            transition: opacity 0.2s ease !important;
+        }
+    }
+}
+
+
+/* =========================================================
+   FINAL DEPLOYMENT OVERRIDES
+   Desktop + F12 Tablet + Mobile
+   Existing CSS above is preserved
+   ========================================================= */
+
+/* Prevent accidental horizontal overflow */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+}
+
+/* Tablet: 769px - 992px */
+@media (min-width: 769px) and (max-width: 992px) {
+
+    .container {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .help-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        gap: 24px;
+    }
+}
+
+/* Tablet portrait + mobile */
+@media (max-width: 768px) {
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .nav-container {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .logo {
+        white-space: nowrap;
+    }
+
+    /* Existing navigation intentionally hides links on mobile.
+       Keep the layout stable and make the CTA usable. */
+    .nav-links {
+        display: none !important;
+    }
+
+    nav .btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .hero-content,
+    .hero-card {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        min-width: 0;
+    }
+
+    .contact-container {
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .contact-cards {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .contact-method {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .nav-container {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    nav .btn {
+        padding: 8px 13px;
+        font-size: 0.78rem;
+    }
+
+    .hero-buttons .btn {
+        min-height: 50px;
+    }
+
+    .contact-method-details {
+        min-width: 0;
+    }
+
+    .contact-method-details strong {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .footer-container {
+        gap: 18px;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+}
+
+/* Touch devices: guarantee visible press feedback even where
+   Chrome DevTools emulation does not reproduce real hover. */
+@media (hover: none) and (pointer: coarse) {
+
+    .btn,
+    .contact-method,
+    .footer-socials a,
+    .card,
+    .exp-card,
+    .help-card,
+    .tool-tag {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active {
+        transform: scale(0.97) !important;
+    }
+
+    .contact-method:active {
+        transform: scale(0.975) !important;
+    }
+
+    .footer-socials a:active {
+        transform: scale(0.9) !important;
+    }
+
+    .card:active,
+    .exp-card:active,
+    .help-card:active {
+        transform: scale(0.985);
+    }
+
+    .tool-tag:active {
+        transform: scale(0.96);
+    }
+}
+
+/* Keyboard focus remains visible on desktop/tablet */
+.btn:focus-visible,
+.contact-method:focus-visible,
+.footer-socials a:focus-visible {
+    outline: 3px solid rgba(0, 107, 84, 0.35);
+    outline-offset: 4px;
+}
+
+/* Mobile reduced-motion support */
+@media (max-width: 768px) {
+    @media (prefers-reduced-motion: reduce) {
+        .floating,
+        .cursor {
+            animation: none !important;
+        }
+
+        .reveal {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+    }
+}
